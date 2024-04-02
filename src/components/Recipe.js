@@ -9,4 +9,6 @@ return (
 <Instructions title="Cooking Instructions" steps={steps} />
 </section>
 );
-}
+};
+
+export default Recipe;
