@@ -8,5 +8,17 @@ module.exports = {
 	},
 	module: {
 		rules: [{ test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }]
-	}
+	},
+	devServer: {
+		client: {
+			logging: 'verbose',
+			overlay: {
+				errors: true,
+				warnings: false,
+				runtimeErrors: true,
+			},
+
+		},
+		port: 9090,
+	},
 };
