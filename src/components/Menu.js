@@ -1,7 +1,7 @@
 import React from "react";
 import Recipe from "./Recipe";
 import { useState } from "react";
-import ColorList from "./ColorList.js";
+import ColorList from "./ColorList";
 
 function Menu({recipes}) {
     const [colors] = useState(recipes.colorData);
@@ -15,7 +15,7 @@ function Menu({recipes}) {
         </div>
 
         <div>
-            <ColorList colors={colors} />;
+            <ColorList colors={colors} />
         </div>
         </article>
     );

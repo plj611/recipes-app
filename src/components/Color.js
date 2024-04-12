@@ -1,3 +1,4 @@
+import React from "react";
 import StarRating2 from "./StarRating2";
 
 export default function Color({ title, color, rating }) {
