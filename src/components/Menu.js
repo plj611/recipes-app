@@ -4,7 +4,7 @@ import { useState } from "react";
 import ColorList from "./ColorList";
 
 function Menu({recipes}) {
-    const [colors] = useState(recipes.colorData);
+    const [colors, setColors] = useState(recipes.colorData);
     return (
         <article>
         <header>
@@ -15,7 +15,8 @@ function Menu({recipes}) {
         </div>
 
         <div>
-            <ColorList colors={colors} />
+            <ColorList colors={colors} onRemoveColor={(id) => {const newColor = colors.filter(color => color.id !== id);
+                                                                setColors(newColor)}}/>
         </div>
         </article>
     );
