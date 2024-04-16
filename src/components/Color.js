@@ -10,7 +10,7 @@ export default function Color({ id, title, color, rating, onRemove = f=>f}) {
             <FaTrash />
         </button>
         <div style={{ height: 50, backgroundColor: color }} />
-        <StarRating2 selectedStars={rating} />
+        <StarRating2 selectedStars={rating} onSelect={(rate) => console.log()}/>
     </section>
     );
 }

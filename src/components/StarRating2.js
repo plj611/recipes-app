@@ -10,7 +10,7 @@ export default function StarRating2({ totalStars = 5, selectedStars = 0 }) {
     return (
     <>
         {createArray(totalStars).map((n, i) => (
-            <Star key={i} selected={selectedStars > i} />
+            <Star key={i} selected={selectedStars > i} onSelect={() => onSelect(i+1)}/>
         ))}
         <p>
             {selectedStars} of {totalStars} stars
