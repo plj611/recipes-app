@@ -16,7 +16,8 @@ function Menu({recipes}) {
 
         <div>
             <ColorList colors={colors} onRemoveColor={(id) => {const newColor = colors.filter(color => color.id !== id);
-                                                                setColors(newColor)}}/>
+                                                                setColors(newColor)}} 
+                                        onRateColorList={(i, rating) => console.log(`Inside Menu Rating: ${rating} I: ${i}`)}/>
         </div>
         </article>
     );
