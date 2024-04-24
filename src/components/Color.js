@@ -11,7 +11,7 @@ export default function Color({ id, title, color, rating, onRemove = f=>f, onRat
         </button>
         <div style={{ height: 50, backgroundColor: color }} />
         <StarRating2 selectedStars={rating} onRate={i => { console.log(`Inside Color.js: ID = ${id} and Rating = ${i}`); 
-                                                            onRateColor(i, rating) }} />
+                                                            onRateColor(i, id) }} />
     </section>
     );
 }
