@@ -2,6 +2,7 @@ import React from "react";
 import Recipe from "./Recipe";
 import { useState } from "react";
 import ColorList from "./ColorList";
+import { CgColorPicker } from "react-icons/cg";
 
 function Menu({recipes}) {
     const [colors, setColors] = useState(recipes.colorData);
@@ -17,7 +18,16 @@ function Menu({recipes}) {
         <div>
             <ColorList colors={colors} onRemoveColor={(id) => {const newColor = colors.filter(color => color.id !== id);
                                                                 setColors(newColor)}} 
-                                        onRateColorList={(i, id) => console.log(`Inside Menu ID: ${id} I: ${i}`)}/>
+                                        onRateColorList={(i, id) => {   console.log(`Inside Menu ID: ${id} I: ${i}`);
+                                                                        const newColor = colors.map(color =>    {  if (color.id === id) {
+                                                                                                                        color.rating = i;
+                                                                                                                        return color;
+                                                                                                                    }
+                                                                                                                    return color;
+                                                                                                                }
+                                                                                                    )
+                                                                        setColors(newColor)
+                                                                    }}/>
         </div>
         </article>
     );
