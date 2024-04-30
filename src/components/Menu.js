@@ -29,6 +29,12 @@ function Menu({recipes}) {
                                                                         setColors(newColor)
                                                                     }}/>
         </div>
+
+        <form>
+            <input type="text" placeholder="color title..." required />
+            <input type="color" required />
+            <button>ADD</button>
+        </form>
         </article>
     );
 }
