@@ -4,6 +4,7 @@ import { useState } from "react";
 import ColorList from "./ColorList";
 // import { CgColorPicker } from "react-icons/cg";
 import AddColorForm from "./AddColorForm";
+import { v4 } from "uuid";
 
 function Menu({recipes}) {
     const [colors, setColors] = useState(recipes.colorData);
@@ -31,7 +32,19 @@ function Menu({recipes}) {
                                                                     }}/>
         </div>
 
-        <AddColorForm onNewColor={(title, color) => {console.log(title); console.log(color)}}/>
+        <AddColorForm onNewColor={(title, color) => {console.log(title); console.log(color); console.log('234');
+                                                    const newColor = [
+                                                     ...colors,
+                                                     {
+                                                        id: v4(),
+                                                        rating: 0,
+                                                        title,
+                                                        color
+                                                     }
+                                                    ]; 
+                                                    console.log(newColor);
+                                                    setColors(newColor);
+                                                }}/> 
         </article>
     );
 }
