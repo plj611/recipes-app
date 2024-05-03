@@ -2,7 +2,8 @@ import React from "react";
 import Recipe from "./Recipe";
 import { useState } from "react";
 import ColorList from "./ColorList";
-import { CgColorPicker } from "react-icons/cg";
+// import { CgColorPicker } from "react-icons/cg";
+import AddColorForm from "./AddColorForm";
 
 function Menu({recipes}) {
     const [colors, setColors] = useState(recipes.colorData);
@@ -30,11 +31,7 @@ function Menu({recipes}) {
                                                                     }}/>
         </div>
 
-        <form>
-            <input type="text" placeholder="color title..." required />
-            <input type="color" required />
-            <button>ADD</button>
-        </form>
+        <AddColorForm onNewColor={(title, color) => {console.log(title); console.log(color)}}/>
         </article>
     );
 }
