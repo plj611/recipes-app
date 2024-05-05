@@ -6,8 +6,11 @@ import ColorList from "./ColorList";
 import AddColorForm from "./AddColorForm";
 import { v4 } from "uuid";
 
+export const colorListContext = createContext()
+
 function Menu({recipes}) {
     const [colors, setColors] = useState(recipes.colorData);
+    
     return (
         <article>
         <header>
@@ -18,6 +21,7 @@ function Menu({recipes}) {
         </div>
 
         <div>
+
             <ColorList colors={colors} onRemoveColor={(id) => {const newColor = colors.filter(color => color.id !== id);
                                                                 setColors(newColor)}} 
                                         onRateColorList={(i, id) => {   console.log(`Inside Menu ID: ${id} I: ${i}`);
