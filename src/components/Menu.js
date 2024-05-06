@@ -22,7 +22,8 @@ function Menu({recipes}) {
 
         <div>
 
-            <ColorList colors={colors} onRemoveColor={(id) => {const newColor = colors.filter(color => color.id !== id);
+        <colorListContext.Provider value={{colors}} >
+            <ColorList onRemoveColor={(id) => {const newColor = colors.filter(color => color.id !== id);
                                                                 setColors(newColor)}} 
                                         onRateColorList={(i, id) => {   console.log(`Inside Menu ID: ${id} I: ${i}`);
                                                                         const newColor = colors.map(color =>    {  if (color.id === id) {
@@ -34,6 +35,7 @@ function Menu({recipes}) {
                                                                                                     )
                                                                         setColors(newColor)
                                                                     }}/>
+        </colorListContext.Provider>
         </div>
 
         <AddColorForm onNewColor={(title, color) => {console.log(title); console.log(color); console.log('234');

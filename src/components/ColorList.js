@@ -1,7 +1,9 @@
-import React from "react";
+import React, {useContext} from "react";
 import Color from "./Color";
+import { colorListContext } from "./Menu";
 
-export default function ColorList({ colors = [], onRemoveColor = f=>f, onRateColorList = f=>f }) {
+export default function ColorList({ onRemoveColor = f=>f, onRateColorList = f=>f }) {
+    const {colors} = useContext(colorListContext);
     if(!colors.length) 
         return <div>No Colors Listed.</div>;
     return (
