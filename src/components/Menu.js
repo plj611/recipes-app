@@ -5,12 +5,24 @@ import ColorList from "./ColorList";
 // import { CgColorPicker } from "react-icons/cg";
 import AddColorForm from "./AddColorForm";
 import { v4 } from "uuid";
+import Color from "./Color";
 
 export const colorListContext = createContext()
 
 function Menu({recipes}) {
     const [colors, setColors] = useState(recipes.colorData);
-    
+    const onRemoveColor = (id) => {const newColor = colors.filter(color => color.id !== id);
+                                                    setColors(newColor)};
+    const onRateColorList = (i, id) => {console.log(`Inside Menu ID: ${id} I: ${i}`);
+                                        const newColor = colors.map(color => {  if (color.id === id) {  color.rating = i;
+                                                                                                        return color;
+                                                                                                     }
+                                                                                return color;
+                                                                             })
+                                        setColors(newColor)                                    
+                                        }
+        
+                                
     return (
         <article>
         <header>
@@ -22,10 +34,13 @@ function Menu({recipes}) {
 
         <div>
 
-        <colorListContext.Provider value={{colors}} >
-            <ColorList onRemoveColor={(id) => {const newColor = colors.filter(color => color.id !== id);
+        <colorListContext.Provider value={{colors, onRemoveColor, onRateColorList}} >
+             {
+              /* <ColorList onRemoveColor={(id) => {const newColor = colors.filter(color => color.id !== id);
                                                                 setColors(newColor)}} 
-                                        onRateColorList={(i, id) => {   console.log(`Inside Menu ID: ${id} I: ${i}`);
+              
+            
+                            onRateColorList={(i, id) => {   console.log(`Inside Menu ID: ${id} I: ${i}`);
                                                                         const newColor = colors.map(color =>    {  if (color.id === id) {
                                                                                                                         color.rating = i;
                                                                                                                         return color;
@@ -34,7 +49,8 @@ function Menu({recipes}) {
                                                                                                                 }
                                                                                                     )
                                                                         setColors(newColor)
-                                                                    }}/>
+                                                                    }}/> */ }
+                <ColorList />
         </colorListContext.Provider>
         </div>
 
