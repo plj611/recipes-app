@@ -6,7 +6,9 @@ import ColorList from "./ColorList";
 import AddColorForm from "./AddColorForm";
 import { v4 } from "uuid";
 import Color from "./Color";
+import { ColorListContextProvider } from "./ColorListContextProvider";
 
+/*
 export const colorListContext = createContext()
 
 function Menu({recipes}) {
@@ -49,7 +51,7 @@ function Menu({recipes}) {
                                                                                                                 }
                                                                                                     )
                                                                         setColors(newColor)
-                                                                    }}/> */ }
+                                                                    }}/> *-/ }
                 <ColorList />
         </colorListContext.Provider>
         </div>
@@ -69,5 +71,15 @@ function Menu({recipes}) {
                                                 }}/> 
         </article>
     );
+} */
+function Menu() {
+    return (
+        <article>
+        <header>
+            <h1>Delicious Recipes</h1>
+        </header>
+            <ColorListContextProvider child={ColorList}> </ColorListContextProvider>
+        </article>
+    )
 }
 export default Menu;
