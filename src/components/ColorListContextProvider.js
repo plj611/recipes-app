@@ -1,4 +1,6 @@
 import React, {useState, createContext} from "react";
+import data from "./data/recipes.json";
+import colorData from "./data/color-data.json";
 
 const ColorListContext = createContext()
 
