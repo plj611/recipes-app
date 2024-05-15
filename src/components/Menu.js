@@ -8,9 +8,9 @@ import { v4 } from "uuid";
 import Color from "./Color";
 import { ColorListContextProvider } from "./ColorListContextProvider";
 
-/*
-export const colorListContext = createContext()
 
+export const colorListContext = createContext()
+/*
 function Menu({recipes}) {
     const [colors, setColors] = useState(recipes.colorData);
     const onRemoveColor = (id) => {const newColor = colors.filter(color => color.id !== id);
@@ -74,12 +74,11 @@ function Menu({recipes}) {
 } */
 function Menu() {
     return (
-        <article>
-        <header>
-            <h1>Delicious Recipes</h1>
-        </header>
-            <ColorListContextProvider child={ColorList}> </ColorListContextProvider>
-        </article>
+
+        <ColorListContextProvider>
+            <ColorList />
+        </ColorListContextProvider>
+
     )
 }
 export default Menu;

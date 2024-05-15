@@ -8,7 +8,7 @@ const ColorListContext = createContext();
 // import the data in this module
 export const ColorListContextHook = () => useContext(ColorListContext);
 
-export function ColorListContextProvider({child}) {
+export function ColorListContextProvider({children}) {
     const [colors, setColors] = useState(colorData);
     const onRemoveColor = (id) => {const newColor = colors.filter(color => color.id !== id);
                                                     setColors(newColor)};
@@ -21,6 +21,7 @@ export function ColorListContextProvider({child}) {
                                         setColors(newColor)                                    
                                         }
     return (<ColorListContext.Provider value={{colors, data, onRemoveColor, onRateColorList}}> 
-            {child}
+               {children}
+               
             </ColorListContext.Provider>)
 }
