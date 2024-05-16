@@ -1,11 +1,13 @@
 import React, {useContext} from "react";
 import { FaTrash } from "react-icons/fa";
 import StarRating2 from "./StarRating2";
-import { colorListContext } from "./Menu";
+// import { colorListContext } from "./Menu";
+import { ColorListContextHook } from "./ColorListContextProvider";
 
 //export default function Color({ id, title, color, rating, onRemove = f=>f, onRateColor = f=>f}) {
 export default function Color({ id, title, color, rating}) {
-    const {onRemoveColor } = useContext(colorListContext);
+    // const {onRemoveColor } = useContext(colorListContext);
+    const { onRemoveColor } = ColorListContextHook();
     return (
     <section>
         <h1>{title}</h1>
