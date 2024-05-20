@@ -4,8 +4,6 @@ import colorData from "../data/color-data.json";
 
 const ColorListContext = createContext();
 
-// export data for Menu to use
-// import the data in this module
 export const ColorListContextHook = () => useContext(ColorListContext);
 
 export function ColorListContextProvider({children}) {

@@ -2,11 +2,10 @@ import React, {createContext} from "react";
 import Recipe from "./Recipe";
 import { useState } from "react";
 import ColorList from "./ColorList";
-// import { CgColorPicker } from "react-icons/cg";
 import AddColorForm from "./AddColorForm";
 import { v4 } from "uuid";
 import Color from "./Color";
-import { ColorListContextProvider } from "./ColorListContextProvider";
+import { ColorListContextHook, ColorListContextProvider } from "./ColorListContextProvider";
 
 
 export const colorListContext = createContext()
@@ -73,12 +72,20 @@ function Menu({recipes}) {
     );
 } */
 function Menu() {
+    const {data} = ColorListContextHook();
+
     return (
+        <article>
+        <header>
+            <h1>Delicious Recipes</h1>
+        </header>
+        <div className="recipes">
+            {data.map((recipe, i) => (<Recipe key={i} {...recipe} />))}
+        </div>
 
-        <ColorListContextProvider>
-            <ColorList />
-        </ColorListContextProvider>
-
+        <ColorList />
+        
+        </article>
     )
 }
 export default Menu;
